@@ -1,5 +1,11 @@
 import { useCallback } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  type FlatListProps,
+} from 'react-native';
 import type { ViewProps, TextProps, ListRenderItemInfo } from 'react-native';
 
 export type ITableProps = {
@@ -15,6 +21,11 @@ export type ITableProps = {
   cellTextStyle?: TextProps['style'];
   headerCellTextStyle?: TextProps['style'];
   separatorStyle?: ViewProps['style'];
+  textProps?: Omit<TextProps, 'style'>;
+  flatListProps?: Omit<
+    FlatListProps<any>,
+    'style' | 'renderItem' | 'data' | 'keyExtractor' | 'contentContainerStyle'
+  >;
 };
 
 const Table = ({
@@ -27,6 +38,8 @@ const Table = ({
   contentContainerStyle,
   rowStyle,
   separatorStyle,
+  textProps,
+  flatListProps,
 }: ITableProps) => {
   const { content, withHeadings } = data;
 
@@ -41,8 +54,6 @@ const Table = ({
               cellStyle,
               index === 0 && withHeadings && styles.headerCell,
               index === 0 && withHeadings && headerCellStyle,
-              cellIndex === 0 && styles.headerCell,
-              index === 0 && cellIndex === 0 && withHeadings && headerCellStyle,
             ]}
           >
             <Text
@@ -54,6 +65,7 @@ const Table = ({
               ]}
               numberOfLines={1}
               ellipsizeMode="tail"
+              {...textProps}
             >
               {cell}
             </Text>
@@ -68,6 +80,7 @@ const Table = ({
       headerCellTextStyle,
       withHeadings,
       rowStyle,
+      textProps,
     ]
   );
 
@@ -82,6 +95,7 @@ const Table = ({
         <View style={[styles.separator, separatorStyle]} />
       )}
       scrollEnabled={false}
+      {...flatListProps}
     />
   );
 };

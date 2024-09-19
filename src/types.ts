@@ -82,7 +82,7 @@ export type EditorJsViewerProps = {
       imageStyle?: ImageProps['style'];
       containerStyle?: ViewProps['style'];
     };
-    link?: {
+    linkTool?: {
       wrapperStyle?: ViewProps['style'];
       containerStyle?: ViewProps['style'];
       imageContainerStyle?: ViewProps['style'];
@@ -150,6 +150,11 @@ export type EditorJsViewerProps = {
       'containerStyle' | 'textStyle' | 'language' | 'style'
     >;
     raw?: Omit<RenderHTMLProps, 'source' | 'contentWidth'>;
+    table?: Pick<ITableProps, 'flatListProps' | 'textProps'>;
+    linkTool?: Pick<
+      ILinkToolProps,
+      'titleTextProps' | 'descriptionTextProps' | 'linkTextProps' | 'imageProps'
+    >;
   };
 };
 

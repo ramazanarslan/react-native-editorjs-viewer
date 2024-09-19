@@ -32,6 +32,10 @@ export type ILinkToolProps = {
   descriptionTextStyle?: TextProps['style'];
   linkTextStyle?: TextProps['style'];
   imageStyle?: ImageProps['style'];
+  titleTextProps?: Omit<TextProps, 'style'>;
+  descriptionTextProps?: Omit<TextProps, 'style'>;
+  linkTextProps?: Omit<TextProps, 'style'>;
+  imageProps?: Omit<ImageProps, 'style' | 'source'>;
 };
 
 const LinkTool = ({
@@ -44,6 +48,10 @@ const LinkTool = ({
   titleTextStyle,
   descriptionTextStyle,
   linkTextStyle,
+  titleTextProps,
+  descriptionTextProps,
+  linkTextProps,
+  imageProps,
 }: ILinkToolProps) => {
   const { meta } = data;
 
@@ -77,6 +85,7 @@ const LinkTool = ({
               style={[styles.title, titleTextStyle]}
               numberOfLines={1}
               ellipsizeMode="tail"
+              {...titleTextProps}
             >
               {meta.title || meta.site_name}
             </Text>
@@ -87,6 +96,7 @@ const LinkTool = ({
               style={[styles.description, descriptionTextStyle]}
               numberOfLines={2}
               ellipsizeMode="tail"
+              {...descriptionTextProps}
             >
               {meta.description}
             </Text>
@@ -97,6 +107,7 @@ const LinkTool = ({
               style={[styles.link, linkTextStyle]}
               numberOfLines={1}
               ellipsizeMode="tail"
+              {...linkTextProps}
             >
               {data.link}
             </Text>
@@ -110,6 +121,7 @@ const LinkTool = ({
                 uri: meta.image.url,
               }}
               style={[styles.image, imageStyle]}
+              {...imageProps}
             />
           )}
         </View>

@@ -129,25 +129,31 @@ function useComponentMap(
             data={block.data}
             containerStyle={[
               containerStyle,
-              componentStyles?.link?.containerStyle,
+              componentStyles?.linkTool?.containerStyle,
             ]}
-            wrapperStyle={componentStyles?.link?.wrapperStyle}
-            imageContainerStyle={componentStyles?.link?.imageContainerStyle}
-            dataContainerStyle={componentStyles?.link?.dataContainerStyle}
+            wrapperStyle={componentStyles?.linkTool?.wrapperStyle}
+            imageContainerStyle={componentStyles?.linkTool?.imageContainerStyle}
+            dataContainerStyle={componentStyles?.linkTool?.dataContainerStyle}
             titleTextStyle={[
               defaultStyles?.textStyle,
-              componentStyles?.link?.titleTextStyle,
+              componentStyles?.linkTool?.titleTextStyle,
             ]}
             descriptionTextStyle={[
               defaultStyles?.textStyle,
-              componentStyles?.link?.descriptionTextStyle,
+              componentStyles?.linkTool?.descriptionTextStyle,
             ]}
             linkTextStyle={[
               defaultStyles?.textStyle,
               defaultStyles?.linkTextStyle,
-              componentStyles?.link?.linkTextStyle,
+              componentStyles?.linkTool?.linkTextStyle,
             ]}
-            imageStyle={componentStyles?.link?.imageStyle}
+            imageStyle={componentStyles?.linkTool?.imageStyle}
+            titleTextProps={componentProps?.linkTool?.titleTextProps}
+            descriptionTextProps={
+              componentProps?.linkTool?.descriptionTextProps
+            }
+            linkTextProps={componentProps?.linkTool?.linkTextProps}
+            imageProps={componentProps?.linkTool?.imageProps}
           />
         );
       },
@@ -278,6 +284,8 @@ function useComponentMap(
               componentStyles?.table?.contentContainerStyle
             }
             separatorStyle={componentStyles?.table?.separatorStyle}
+            textProps={componentProps?.table?.textProps}
+            flatListProps={componentProps?.table?.flatListProps}
           />
         );
       },
