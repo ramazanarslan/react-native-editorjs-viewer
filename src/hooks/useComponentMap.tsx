@@ -88,7 +88,11 @@ function useComponentMap(
         return (
           <Header
             data={block.data}
-            style={[containerStyle, componentStyles?.header?.textStyle]}
+            style={[
+              containerStyle,
+              defaultStyles?.textStyle,
+              componentStyles?.header?.textStyle,
+            ]}
           />
         );
       },
@@ -218,7 +222,10 @@ function useComponentMap(
             ]}
             listItemStyle={{
               containerStyle: componentStyles?.list?.listItem?.containerStyle,
-              textStyle: componentStyles?.list?.listItem?.textStyle,
+              textStyle: [
+                defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.textStyle,
+              ],
               dotStyle: componentStyles?.list?.listItem?.dotStyle,
               numberTextStyle: [
                 defaultStyles?.textStyle,
