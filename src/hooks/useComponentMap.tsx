@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import type { ComponentType } from 'react';
 import type {
   EditorJsViewerProps,
   IComponentBlockProps,
@@ -27,89 +26,218 @@ function useComponentMap(
   componentProps: EditorJsViewerProps['componentProps']
 ): IComponentObject {
   return useMemo(() => {
-    const defaultComponents = {
-      Paragraph: ParagraphComponent,
-      Header: HeaderComponent,
-      Delimiter: DelimiterComponent,
-      Image: ImageComponent,
-      Link: LinkToolComponent,
-      Quote: QuoteComponent,
-      List: ListComponent,
-      Table: TableComponent,
-      Warning: WarningComponent,
-      CheckList: CheckListComponent,
-      Code: CodeComponent,
-      Raw: RawComponent,
+    const Paragraph = components?.Paragraph || ParagraphComponent;
+    const Header = components?.Header || HeaderComponent;
+    const Delimiter = components?.Delimiter || DelimiterComponent;
+    const Image = components?.Image || ImageComponent;
+    const LinkTool = components?.Link || LinkToolComponent;
+    const Quote = components?.Quote || QuoteComponent;
+    const List = components?.List || ListComponent;
+    const Table = components?.Table || TableComponent;
+    const Warning = components?.Warning || WarningComponent;
+    const CheckList = components?.CheckList || CheckListComponent;
+    const Code = components?.Code || CodeComponent;
+    const Raw = components?.Raw || RawComponent;
+
+    return {
+      paragraph: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Paragraph
+            data={block.data}
+            style={[containerStyle, componentStyles?.paragraph?.textStyle]}
+            otherStyles={{
+              boldTextStyle: componentStyles?.paragraph?.boldTextStyle,
+              italicTextStyle: componentStyles?.paragraph?.italicTextStyle,
+              underlineTextStyle:
+                componentStyles?.paragraph?.underlineTextStyle,
+              codeTextStyle: componentStyles?.paragraph?.codeTextStyle,
+              markTextStyle: componentStyles?.paragraph?.markTextStyle,
+              linkTextStyle: componentStyles?.paragraph?.linkTextStyle,
+            }}
+          />
+        );
+      },
+      header: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Header
+            data={block.data}
+            style={[containerStyle, componentStyles?.header?.textStyle]}
+          />
+        );
+      },
+      delimiter: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Delimiter
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.delimiter?.containerStyle,
+            ]}
+            textStyle={componentStyles?.delimiter?.textStyle}
+          />
+        );
+      },
+      image: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Image
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.image?.containerStyle,
+            ]}
+            textStyle={componentStyles?.image?.textStyle}
+            imageStyle={componentStyles?.image?.imageStyle}
+          />
+        );
+      },
+      linktool: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <LinkTool
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.link?.containerStyle,
+            ]}
+            wrapperStyle={componentStyles?.link?.wrapperStyle}
+            imageContainerStyle={componentStyles?.link?.imageContainerStyle}
+            dataContainerStyle={componentStyles?.link?.dataContainerStyle}
+            titleTextStyle={componentStyles?.link?.titleTextStyle}
+            descriptionTextStyle={componentStyles?.link?.descriptionTextStyle}
+            linkTextStyle={componentStyles?.link?.linkTextStyle}
+            imageStyle={componentStyles?.link?.imageStyle}
+          />
+        );
+      },
+      quote: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Quote
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.quote?.containerStyle,
+            ]}
+            textStyle={componentStyles?.quote?.textStyle}
+            captionTextStyle={componentStyles?.quote?.captionTextStyle}
+            otherStyles={{
+              boldTextStyle: componentStyles?.quote?.boldTextStyle,
+              italicTextStyle: componentStyles?.quote?.italicTextStyle,
+              underlineTextStyle: componentStyles?.quote?.underlineTextStyle,
+              codeTextStyle: componentStyles?.quote?.codeTextStyle,
+              markTextStyle: componentStyles?.quote?.markTextStyle,
+              linkTextStyle: componentStyles?.quote?.linkTextStyle,
+            }}
+          />
+        );
+      },
+      list: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <List
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.list?.containerStyle,
+            ]}
+            listItemStyle={{
+              containerStyle: componentStyles?.list?.listItem?.containerStyle,
+              textStyle: componentStyles?.list?.listItem?.textStyle,
+              dotStyle: componentStyles?.list?.listItem?.dotStyle,
+              numberTextStyle: componentStyles?.list?.listItem?.numberTextStyle,
+            }}
+            otherStyles={{
+              boldTextStyle: componentStyles?.list?.listItem?.boldTextStyle,
+              italicTextStyle: componentStyles?.list?.listItem?.italicTextStyle,
+              underlineTextStyle:
+                componentStyles?.list?.listItem?.underlineTextStyle,
+              codeTextStyle: componentStyles?.list?.listItem?.codeTextStyle,
+              markTextStyle: componentStyles?.list?.listItem?.markTextStyle,
+              linkTextStyle: componentStyles?.list?.listItem?.linkTextStyle,
+            }}
+          />
+        );
+      },
+      table: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Table
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.table?.containerStyle,
+            ]}
+            rowStyle={componentStyles?.table?.rowStyle}
+            cellStyle={componentStyles?.table?.cellStyle}
+            headerCellStyle={componentStyles?.table?.headerCellStyle}
+            cellTextStyle={componentStyles?.table?.cellTextStyle}
+            headerCellTextStyle={componentStyles?.table?.headerCellTextStyle}
+          />
+        );
+      },
+      warning: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Warning
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.warning?.containerStyle,
+            ]}
+            titleTextStyle={componentStyles?.warning?.titleTextStyle}
+            messageTextStyle={componentStyles?.warning?.messageTextStyle}
+          />
+        );
+      },
+      checklist: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <CheckList
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.checklist?.containerStyle,
+            ]}
+            itemContainerStyle={componentStyles?.checklist?.itemContainerStyle}
+            textStyle={componentStyles?.checklist?.textStyle}
+            checkboxStyle={componentStyles?.checklist?.checkboxStyle}
+            checkboxCheckedStyle={
+              componentStyles?.checklist?.checkboxCheckedStyle
+            }
+            checkboxUncheckedStyle={
+              componentStyles?.checklist?.checkboxUncheckedStyle
+            }
+          />
+        );
+      },
+      code: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Code
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.code?.containerStyle,
+            ]}
+            codeContainerStyle={componentStyles?.code?.codeContainerStyle}
+            codeTextStyle={componentStyles?.code?.codeTextStyle}
+            {...componentProps?.code}
+          />
+        );
+      },
+      raw: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Raw
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.raw?.containerStyle,
+            ]}
+            {...componentProps?.raw}
+          />
+        );
+      },
+      ...customComponents,
     };
-
-    const componentWrapperFactory =
-      (Component: ComponentType<any>, styles: any) =>
-      ({ block, containerStyle }: IComponentBlockProps) => (
-        <Component
-          data={block.data}
-          containerStyle={[containerStyle, styles?.containerStyle]}
-          {...styles}
-          {...(['raw', 'code'].includes(block.type.toLowerCase())
-            ? componentProps?.[
-                block.type.toLowerCase() as keyof typeof componentProps
-              ]
-            : {})}
-        />
-      );
-
-    const mappedComponents = {
-      paragraph: componentWrapperFactory(
-        components?.Paragraph || defaultComponents.Paragraph,
-        componentStyles?.paragraph
-      ),
-      header: componentWrapperFactory(
-        components?.Header || defaultComponents.Header,
-        componentStyles?.header
-      ),
-      delimiter: componentWrapperFactory(
-        components?.Delimiter || defaultComponents.Delimiter,
-        componentStyles?.delimiter
-      ),
-      image: componentWrapperFactory(
-        components?.Image || defaultComponents.Image,
-        componentStyles?.image
-      ),
-      linktool: componentWrapperFactory(
-        components?.Link || defaultComponents.Link,
-        componentStyles?.link
-      ),
-      quote: componentWrapperFactory(
-        components?.Quote || defaultComponents.Quote,
-        componentStyles?.quote
-      ),
-      list: componentWrapperFactory(
-        components?.List || defaultComponents.List,
-        componentStyles?.list
-      ),
-      table: componentWrapperFactory(
-        components?.Table || defaultComponents.Table,
-        componentStyles?.table
-      ),
-      warning: componentWrapperFactory(
-        components?.Warning || defaultComponents.Warning,
-        componentStyles?.warning
-      ),
-      checklist: componentWrapperFactory(
-        components?.CheckList || defaultComponents.CheckList,
-        componentStyles?.checklist
-      ),
-      code: componentWrapperFactory(
-        components?.Code || defaultComponents.Code,
-        componentStyles?.code
-      ),
-      raw: componentWrapperFactory(
-        components?.Raw || defaultComponents.Raw,
-        componentStyles?.raw
-      ),
-    };
-
-    return { ...mappedComponents, ...customComponents };
-  }, [components, componentStyles, customComponents, componentProps]);
+  }, [
+    components,
+    componentStyles,
+    customComponents,
+    componentProps,
+  ]) as IComponentObject;
 }
 
 export default useComponentMap;
