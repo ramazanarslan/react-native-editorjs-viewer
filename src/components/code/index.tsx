@@ -2,7 +2,7 @@ import { View, StyleSheet } from 'react-native';
 import CodeHighlighter from 'react-native-code-highlighter';
 import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import type { ViewProps, TextProps } from 'react-native';
-import type { ReactStyle } from 'react-native-code-highlighter/dist/typescript/utils/styles';
+import { type CodeHighlighterProps } from 'react-native-code-highlighter/src/lib/CodeHighlighter';
 
 export type ICodeProps = {
   data: {
@@ -12,8 +12,10 @@ export type ICodeProps = {
   containerStyle?: ViewProps['style'];
   codeContainerStyle?: ViewProps['style'];
   codeTextStyle?: TextProps['style'];
-  hljsStyle?: ReactStyle;
-};
+} & Omit<
+  CodeHighlighterProps,
+  'containerStyle' | 'textStyle' | 'language' | 'style'
+>;
 
 const Code = ({
   data,
@@ -21,10 +23,12 @@ const Code = ({
   codeContainerStyle,
   codeTextStyle,
   hljsStyle,
+  ...props
 }: ICodeProps) => {
   return (
     <View style={[styles.container, containerStyle]}>
       <CodeHighlighter
+        {...props}
         hljsStyle={hljsStyle ?? atomOneDarkReasonable}
         containerStyle={[styles.codeContainer, codeContainerStyle]}
         textStyle={codeTextStyle}

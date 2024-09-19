@@ -12,6 +12,9 @@ import type { IWarningProps } from './components/warning';
 import type { ICheckListProps } from './components/checkList';
 import type { ICodeProps } from './components/code';
 import type { ReactStyle } from 'react-native-code-highlighter/dist/typescript/utils/styles';
+import type { IRawProps } from './components/raw';
+import type { RenderHTMLProps } from 'react-native-render-html';
+import type { CodeHighlighterProps } from 'react-native-code-highlighter/src/lib/CodeHighlighter';
 
 export interface IEditorJsData {
   version?: string;
@@ -60,6 +63,7 @@ export type EditorJsViewerProps = {
     Warning?: React.ComponentType<IWarningProps>;
     CheckList?: React.ComponentType<ICheckListProps>;
     Code?: React.ComponentType<ICodeProps>;
+    Raw?: React.ComponentType<IRawProps>;
   };
   customComponents?: IComponentObject;
   style?: ViewProps['style'];
@@ -131,6 +135,16 @@ export type EditorJsViewerProps = {
       codeTextStyle?: TextProps['style'];
       hljsStyle?: ReactStyle;
     };
+    raw?: {
+      containerStyle?: ViewProps['style'];
+    };
+  };
+  componentConfigs?: {
+    code?: Omit<
+      CodeHighlighterProps,
+      'containerStyle' | 'textStyle' | 'language' | 'style'
+    >;
+    raw?: Omit<RenderHTMLProps, 'source' | 'contentWidth'>;
   };
 };
 

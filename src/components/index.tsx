@@ -10,6 +10,7 @@ import TableComponent from './table';
 import WarningComponent from './warning';
 import CheckListComponent from './checkList';
 import CodeComponent from './code';
+import RawComponent from './raw';
 
 export {
   ParagraphComponent,
@@ -24,4 +25,5 @@ export {
   WarningComponent,
   CheckListComponent,
   CodeComponent,
+  RawComponent,
 };

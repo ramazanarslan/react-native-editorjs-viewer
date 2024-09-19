@@ -13,6 +13,7 @@ import {
   WarningComponent,
   CheckListComponent,
   CodeComponent,
+  RawComponent,
 } from './components';
 import type {
   EditorJsViewerProps,
@@ -27,6 +28,7 @@ const EditorJsViewer = ({
   customComponents,
   componentStyles,
   style,
+  componentConfigs,
 }: EditorJsViewerProps) => {
   const componentMap: IComponentObject = useMemo(() => {
     const Paragraph = components?.Paragraph || ParagraphComponent;
@@ -40,6 +42,7 @@ const EditorJsViewer = ({
     const Warning = components?.Warning || WarningComponent;
     const CheckList = components?.CheckList || CheckListComponent;
     const Code = components?.Code || CodeComponent;
+    const Raw = components?.Raw || RawComponent;
 
     return {
       paragraph: ({ block, containerStyle }: IComponentBlockProps) => {
@@ -216,13 +219,25 @@ const EditorJsViewer = ({
             ]}
             codeContainerStyle={componentStyles?.code?.codeContainerStyle}
             codeTextStyle={componentStyles?.code?.codeTextStyle}
-            hljsStyle={componentStyles?.code?.hljsStyle}
+            {...componentConfigs?.code}
+          />
+        );
+      },
+      raw: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Raw
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.raw?.containerStyle,
+            ]}
+            {...componentConfigs?.raw}
           />
         );
       },
       ...customComponents,
     };
-  }, [components, componentStyles, customComponents]);
+  }, [components, componentStyles, customComponents, componentConfigs]);
 
   return (
     <View style={[styles.container, style]}>
