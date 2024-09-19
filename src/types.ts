@@ -7,6 +7,7 @@ import type { IImageProps } from './components/image';
 import type { ILinkToolProps } from './components/linkTool';
 import type { IQuoteProps } from './components/quote';
 import type { IListProps } from './components/list';
+import type { ITableProps } from './components/table';
 
 export interface IEditorJsData {
   version?: string;
@@ -51,6 +52,7 @@ export type EditorJsViewerProps = {
     Link?: React.ComponentType<ILinkToolProps>;
     Quote?: React.ComponentType<IQuoteProps>;
     List?: React.ComponentType<IListProps>;
+    Table?: React.ComponentType<ITableProps>;
   };
   customComponents?: IComponentObject;
   style?: ViewProps['style'];
@@ -94,6 +96,14 @@ export type EditorJsViewerProps = {
         dotStyle?: ViewProps['style'];
         numberTextStyle?: TextProps['style'];
       } & IUseParseHtmlTags['styles'];
+    };
+    table?: {
+      containerStyle?: ViewProps['style'];
+      cellStyle?: ViewProps['style'];
+      headerCellStyle?: ViewProps['style'];
+      cellTextStyle?: TextProps['style'];
+      headerCellTextStyle?: TextProps['style'];
+      rowStyle?: ViewProps['style'];
     };
   };
 };

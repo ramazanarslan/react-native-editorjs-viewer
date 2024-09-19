@@ -158,6 +158,7 @@
       }
     },
     {
+      "id": "random123",
       "type": "linkTool",
       "data": {
         "link": "https://codex.so",
@@ -172,11 +173,20 @@
       }
     },
     {
+      "id": "random124",
       "type": "quote",
       "data": {
         "text": "<b>The</b> unexamined life is not worth living.",
         "caption": "Socrates",
         "alignment": "left"
+      }
+    },
+    {
+      "id": "random125",
+      "type" : "table",
+      "data" : {
+        "withHeadings": true,
+        "content" : [ [ "Kine", "Pigs", "Chicken" ], [ "1 pcs", "3 pcs", "12 pcs" ], [ "100$", "200$", "150$" ], [ "100$", "200$", "150$" ] ]
       }
     }
   ],

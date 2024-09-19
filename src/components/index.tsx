@@ -6,6 +6,7 @@ import LinkToolComponent from './linkTool';
 import QuoteComponent from './quote';
 import FallbackComponent from './fallback';
 import ListComponent from './list';
+import TableComponent from './table';
 
 export {
   ParagraphComponent,
@@ -16,4 +17,5 @@ export {
   QuoteComponent,
   FallbackComponent,
   ListComponent,
+  TableComponent,
 };

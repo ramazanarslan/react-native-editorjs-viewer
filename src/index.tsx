@@ -9,6 +9,7 @@ import {
   ParagraphComponent,
   QuoteComponent,
   ListComponent,
+  TableComponent,
 } from './components';
 import type {
   EditorJsViewerProps,
@@ -32,6 +33,7 @@ const EditorJsViewer = ({
     const LinkTool = components?.Link || LinkToolComponent;
     const Quote = components?.Quote || QuoteComponent;
     const List = components?.List || ListComponent;
+    const Table = components?.Table || TableComponent;
 
     return {
       paragraph: ({ block, containerStyle }: IComponentBlockProps) => {
@@ -146,6 +148,22 @@ const EditorJsViewer = ({
               markTextStyle: componentStyles?.list?.listItem?.markTextStyle,
               linkTextStyle: componentStyles?.list?.listItem?.linkTextStyle,
             }}
+          />
+        );
+      },
+      table: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Table
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.table?.containerStyle,
+            ]}
+            rowStyle={componentStyles?.table?.rowStyle}
+            cellStyle={componentStyles?.table?.cellStyle}
+            headerCellStyle={componentStyles?.table?.headerCellStyle}
+            cellTextStyle={componentStyles?.table?.cellTextStyle}
+            headerCellTextStyle={componentStyles?.table?.headerCellTextStyle}
           />
         );
       },
