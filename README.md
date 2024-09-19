@@ -1,6 +1,16 @@
-# react-native-editorjs-viewer
+# React Native Editor.js Viewer
 
-react-native-editorjs-viewer is a React Native component for displaying content created with Editor.js in mobile apps. It supports various block types like headings, paragraphs, lists, and images, rendering them in a user-friendly and customizable way. Perfect for integrating dynamic or CMS-based content into mobile applications.
+React Native Editor.js Viewer is a powerful and flexible component for rendering Editor.js content in React Native applications. This library provides a seamless way to display rich, structured content created with Editor.js in your mobile apps, maintaining the look and feel of the original content while adapting it for mobile interfaces.
+
+Key features include:
+
+- Support for a wide range of Editor.js block types
+- Customizable styling for each block type
+- Fallback component for handling unsupported blocks
+- Responsive design optimized for mobile devices
+- Easy integration with existing React Native projects
+
+Whether you're building a content-rich app, a mobile blog reader, or any application that needs to display structured content, React Native Editor.js Viewer offers a robust solution for rendering Editor.js output in your React Native environment.
 
 ## Installation
 
@@ -10,15 +20,67 @@ npm install react-native-editorjs-viewer
 
 ## Usage
 
-
-```js
-import { multiply } from 'react-native-editorjs-viewer';
+```javascript
+import EditorJsViewer from 'react-native-editorjs-viewer';
 
 // ...
 
-const result = await multiply(3, 7);
+const App = () => {
+  return (
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <EditorJsViewer
+        data={editorJsData}
+        showFallback={true}
+        style={styles.editorJsContainer}
+      />
+    </ScrollView>
+  );
+};
 ```
 
+## Features
+
+- Supports various Editor.js block types
+- Customizable styles for each component
+- Fallback component for unsupported block types
+- Responsive design for mobile applications
+
+## Supported Block Types
+
+- Paragraph
+- Header
+- Delimiter
+- Image
+- Link Tool
+- Quote
+- List (ordered and unordered)
+- Table
+- Warning
+- Checklist
+- Code
+- Raw HTML
+
+## Customization
+
+You can customize the appearance of each component by passing style props:
+
+```javascript
+<EditorJsViewer
+  data={editorJsData}
+  componentStyles={{
+    paragraph: {
+      textStyle: { fontSize: 16, color: '#333' },
+    },
+    // ... other component styles
+  }}
+  componentProps={{
+    code: {
+      showLineNumbers: true,
+    },
+    // ... other component props
+  }}
+/>
+```
 
 ## Contributing
 

@@ -1,7 +1,7 @@
 {
   "name": "react-native-editorjs-viewer",
-  "version": "0.1.0",
-  "description": "react-native-editorjs-viewer is a React Native component for displaying content created with Editor.js in mobile apps. It supports various block types like headings, paragraphs, lists, and images, rendering them in a user-friendly and customizable way. Perfect for integrating dynamic or CMS-based content into mobile applications.",
+  "version": "0.0.1",
+  "description": "A React Native component for rendering Editor.js content, supporting various block types with customizable styling.",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",

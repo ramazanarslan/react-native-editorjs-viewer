@@ -139,7 +139,7 @@ export type EditorJsViewerProps = {
       containerStyle?: ViewProps['style'];
     };
   };
-  componentConfigs?: {
+  componentProps?: {
     code?: Omit<
       CodeHighlighterProps,
       'containerStyle' | 'textStyle' | 'language' | 'style'

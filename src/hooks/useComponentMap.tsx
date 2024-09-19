@@ -24,7 +24,7 @@ function useComponentMap(
   components: EditorJsViewerProps['components'],
   componentStyles: EditorJsViewerProps['componentStyles'],
   customComponents: EditorJsViewerProps['customComponents'],
-  componentConfigs: EditorJsViewerProps['componentConfigs']
+  componentProps: EditorJsViewerProps['componentProps']
 ): IComponentObject {
   return useMemo(() => {
     const defaultComponents = {
@@ -50,8 +50,8 @@ function useComponentMap(
           containerStyle={[containerStyle, styles?.containerStyle]}
           {...styles}
           {...(['raw', 'code'].includes(block.type.toLowerCase())
-            ? componentConfigs?.[
-                block.type.toLowerCase() as keyof typeof componentConfigs
+            ? componentProps?.[
+                block.type.toLowerCase() as keyof typeof componentProps
               ]
             : {})}
         />
@@ -109,7 +109,7 @@ function useComponentMap(
     };
 
     return { ...mappedComponents, ...customComponents };
-  }, [components, componentStyles, customComponents, componentConfigs]);
+  }, [components, componentStyles, customComponents, componentProps]);
 }
 
 export default useComponentMap;
