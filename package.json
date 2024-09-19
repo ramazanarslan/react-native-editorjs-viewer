@@ -69,6 +69,7 @@
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^29.5.5",
     "@types/react": "^18.2.44",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "commitlint": "^17.0.2",
     "del-cli": "^5.1.0",
     "eslint": "^8.51.0",
@@ -183,6 +184,9 @@
     "version": "0.41.2"
   },
   "dependencies": {
-    "html-entities": "^2.5.2"
+    "html-entities": "^2.5.2",
+    "react-native-code-highlighter": "^1.2.3",
+    "react-native-syntax-highlighter": "^2.1.0",
+    "react-syntax-highlighter": "^15.5.0"
   }
 }

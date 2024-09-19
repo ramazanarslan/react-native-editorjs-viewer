@@ -10,6 +10,8 @@ import type { IListProps } from './components/list';
 import type { ITableProps } from './components/table';
 import type { IWarningProps } from './components/warning';
 import type { ICheckListProps } from './components/checkList';
+import type { ICodeProps } from './components/code';
+import type { ReactStyle } from 'react-native-code-highlighter/dist/typescript/utils/styles';
 
 export interface IEditorJsData {
   version?: string;
@@ -57,6 +59,7 @@ export type EditorJsViewerProps = {
     Table?: React.ComponentType<ITableProps>;
     Warning?: React.ComponentType<IWarningProps>;
     CheckList?: React.ComponentType<ICheckListProps>;
+    Code?: React.ComponentType<ICodeProps>;
   };
   customComponents?: IComponentObject;
   style?: ViewProps['style'];
@@ -121,6 +124,12 @@ export type EditorJsViewerProps = {
       checkboxStyle?: ViewProps['style'];
       checkboxCheckedStyle?: ViewProps['style'];
       checkboxUncheckedStyle?: ViewProps['style'];
+    };
+    code?: {
+      containerStyle?: ViewProps['style'];
+      codeContainerStyle?: ViewProps['style'];
+      codeTextStyle?: TextProps['style'];
+      hljsStyle?: ReactStyle;
     };
   };
 };

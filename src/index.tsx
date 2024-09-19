@@ -12,6 +12,7 @@ import {
   TableComponent,
   WarningComponent,
   CheckListComponent,
+  CodeComponent,
 } from './components';
 import type {
   EditorJsViewerProps,
@@ -38,6 +39,7 @@ const EditorJsViewer = ({
     const Table = components?.Table || TableComponent;
     const Warning = components?.Warning || WarningComponent;
     const CheckList = components?.CheckList || CheckListComponent;
+    const Code = components?.Code || CodeComponent;
 
     return {
       paragraph: ({ block, containerStyle }: IComponentBlockProps) => {
@@ -201,6 +203,20 @@ const EditorJsViewer = ({
             checkboxUncheckedStyle={
               componentStyles?.checklist?.checkboxUncheckedStyle
             }
+          />
+        );
+      },
+      code: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Code
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.code?.containerStyle,
+            ]}
+            codeContainerStyle={componentStyles?.code?.codeContainerStyle}
+            codeTextStyle={componentStyles?.code?.codeTextStyle}
+            hljsStyle={componentStyles?.code?.hljsStyle}
           />
         );
       },

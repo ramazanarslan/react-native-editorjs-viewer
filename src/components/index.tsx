@@ -9,6 +9,7 @@ import ListComponent from './list';
 import TableComponent from './table';
 import WarningComponent from './warning';
 import CheckListComponent from './checkList';
+import CodeComponent from './code';
 
 export {
   ParagraphComponent,
@@ -22,4 +23,5 @@ export {
   TableComponent,
   WarningComponent,
   CheckListComponent,
+  CodeComponent,
 };
