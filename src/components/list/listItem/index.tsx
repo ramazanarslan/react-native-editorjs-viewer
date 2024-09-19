@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { useParseHtmlTags } from '../../../hooks';
 import { useMemo } from 'react';
+import type { IUseParseHtmlTags } from '../../../types';
 
 export type IItemIListProps = {
   value: string;
@@ -16,6 +17,7 @@ export type IItemIListProps = {
   dotStyle?: ViewProps['style'];
   numberTextStyle?: TextProps['style'];
   textStyle?: TextProps['style'];
+  otherStyles?: IUseParseHtmlTags['styles'];
 };
 
 const ListItem = ({
@@ -26,8 +28,11 @@ const ListItem = ({
   textStyle,
   numberTextStyle,
   containerStyle,
+  otherStyles,
 }: IItemIListProps) => {
-  const { parseHtmlTag, defaultTagList } = useParseHtmlTags({});
+  const { parseHtmlTag, defaultTagList } = useParseHtmlTags({
+    styles: otherStyles,
+  });
 
   const parsedText = useMemo(
     () => parseHtmlTag(defaultTagList, value),

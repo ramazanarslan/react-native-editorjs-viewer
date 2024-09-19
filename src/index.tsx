@@ -137,6 +137,15 @@ const EditorJsViewer = ({
               dotStyle: componentStyles?.list?.listItem?.dotStyle,
               numberTextStyle: componentStyles?.list?.listItem?.numberTextStyle,
             }}
+            otherStyles={{
+              boldTextStyle: componentStyles?.list?.listItem?.boldTextStyle,
+              italicTextStyle: componentStyles?.list?.listItem?.italicTextStyle,
+              underlineTextStyle:
+                componentStyles?.list?.listItem?.underlineTextStyle,
+              codeTextStyle: componentStyles?.list?.listItem?.codeTextStyle,
+              markTextStyle: componentStyles?.list?.listItem?.markTextStyle,
+              linkTextStyle: componentStyles?.list?.listItem?.linkTextStyle,
+            }}
           />
         );
       },

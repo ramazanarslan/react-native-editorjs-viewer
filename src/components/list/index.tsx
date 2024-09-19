@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { useMemo } from 'react';
 import ListItem from './listItem';
+import type { IUseParseHtmlTags } from '../../types';
 
 export type IListProps = {
   data: {
@@ -19,9 +20,15 @@ export type IListProps = {
     dotStyle?: ViewProps['style'];
     numberTextStyle?: TextProps['style'];
   };
+  otherStyles?: IUseParseHtmlTags['styles'];
 };
 
-const List = ({ data, containerStyle, listItemStyle }: IListProps) => {
+const List = ({
+  data,
+  containerStyle,
+  listItemStyle,
+  otherStyles,
+}: IListProps) => {
   const sections = useMemo(() => {
     return [{ data: data.items }];
   }, [data.items]);
@@ -41,6 +48,7 @@ const List = ({ data, containerStyle, listItemStyle }: IListProps) => {
           textStyle={listItemStyle?.textStyle}
           dotStyle={listItemStyle?.dotStyle}
           numberTextStyle={listItemStyle?.numberTextStyle}
+          otherStyles={otherStyles}
         />
       )}
     />

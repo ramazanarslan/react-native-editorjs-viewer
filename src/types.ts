@@ -93,7 +93,7 @@ export type EditorJsViewerProps = {
         textStyle?: TextProps['style'];
         dotStyle?: ViewProps['style'];
         numberTextStyle?: TextProps['style'];
-      };
+      } & IUseParseHtmlTags['styles'];
     };
   };
 };
