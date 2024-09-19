@@ -22,6 +22,7 @@ import {
 function useComponentMap(
   components: EditorJsViewerProps['components'],
   componentStyles: EditorJsViewerProps['componentStyles'],
+  defaultStyles: EditorJsViewerProps['defaultStyles'],
   customComponents: EditorJsViewerProps['customComponents'],
   componentProps: EditorJsViewerProps['componentProps']
 ): IComponentObject {
@@ -44,15 +45,41 @@ function useComponentMap(
         return (
           <Paragraph
             data={block.data}
-            style={[containerStyle, componentStyles?.paragraph?.textStyle]}
+            style={[
+              containerStyle,
+              defaultStyles?.textStyle,
+              componentStyles?.paragraph?.textStyle,
+            ]}
             otherStyles={{
-              boldTextStyle: componentStyles?.paragraph?.boldTextStyle,
-              italicTextStyle: componentStyles?.paragraph?.italicTextStyle,
-              underlineTextStyle:
+              boldTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.boldTextStyle,
+                componentStyles?.paragraph?.boldTextStyle,
+              ],
+              italicTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.italicTextStyle,
+                componentStyles?.paragraph?.italicTextStyle,
+              ],
+              underlineTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.underlineTextStyle,
                 componentStyles?.paragraph?.underlineTextStyle,
-              codeTextStyle: componentStyles?.paragraph?.codeTextStyle,
-              markTextStyle: componentStyles?.paragraph?.markTextStyle,
-              linkTextStyle: componentStyles?.paragraph?.linkTextStyle,
+              ],
+              codeTextStyle: [
+                defaultStyles?.codeTextStyle,
+                componentStyles?.paragraph?.codeTextStyle,
+              ],
+              markTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.markTextStyle,
+                componentStyles?.paragraph?.markTextStyle,
+              ],
+              linkTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.linkTextStyle,
+                componentStyles?.paragraph?.linkTextStyle,
+              ],
             }}
           />
         );
@@ -73,7 +100,10 @@ function useComponentMap(
               containerStyle,
               componentStyles?.delimiter?.containerStyle,
             ]}
-            textStyle={componentStyles?.delimiter?.textStyle}
+            textStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.delimiter?.textStyle,
+            ]}
           />
         );
       },
@@ -85,7 +115,10 @@ function useComponentMap(
               containerStyle,
               componentStyles?.image?.containerStyle,
             ]}
-            textStyle={componentStyles?.image?.textStyle}
+            textStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.image?.textStyle,
+            ]}
             imageStyle={componentStyles?.image?.imageStyle}
           />
         );
@@ -101,9 +134,19 @@ function useComponentMap(
             wrapperStyle={componentStyles?.link?.wrapperStyle}
             imageContainerStyle={componentStyles?.link?.imageContainerStyle}
             dataContainerStyle={componentStyles?.link?.dataContainerStyle}
-            titleTextStyle={componentStyles?.link?.titleTextStyle}
-            descriptionTextStyle={componentStyles?.link?.descriptionTextStyle}
-            linkTextStyle={componentStyles?.link?.linkTextStyle}
+            titleTextStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.link?.titleTextStyle,
+            ]}
+            descriptionTextStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.link?.descriptionTextStyle,
+            ]}
+            linkTextStyle={[
+              defaultStyles?.textStyle,
+              defaultStyles?.linkTextStyle,
+              componentStyles?.link?.linkTextStyle,
+            ]}
             imageStyle={componentStyles?.link?.imageStyle}
           />
         );
@@ -116,15 +159,45 @@ function useComponentMap(
               containerStyle,
               componentStyles?.quote?.containerStyle,
             ]}
-            textStyle={componentStyles?.quote?.textStyle}
-            captionTextStyle={componentStyles?.quote?.captionTextStyle}
+            textStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.quote?.textStyle,
+            ]}
+            captionTextStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.quote?.captionTextStyle,
+            ]}
             otherStyles={{
-              boldTextStyle: componentStyles?.quote?.boldTextStyle,
-              italicTextStyle: componentStyles?.quote?.italicTextStyle,
-              underlineTextStyle: componentStyles?.quote?.underlineTextStyle,
-              codeTextStyle: componentStyles?.quote?.codeTextStyle,
-              markTextStyle: componentStyles?.quote?.markTextStyle,
-              linkTextStyle: componentStyles?.quote?.linkTextStyle,
+              boldTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.boldTextStyle,
+                componentStyles?.quote?.boldTextStyle,
+              ],
+              italicTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.italicTextStyle,
+                componentStyles?.quote?.italicTextStyle,
+              ],
+              underlineTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.underlineTextStyle,
+                componentStyles?.quote?.underlineTextStyle,
+              ],
+              codeTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.codeTextStyle,
+                componentStyles?.quote?.codeTextStyle,
+              ],
+              markTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.markTextStyle,
+                componentStyles?.quote?.markTextStyle,
+              ],
+              linkTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.linkTextStyle,
+                componentStyles?.quote?.linkTextStyle,
+              ],
             }}
           />
         );
@@ -141,17 +214,43 @@ function useComponentMap(
               containerStyle: componentStyles?.list?.listItem?.containerStyle,
               textStyle: componentStyles?.list?.listItem?.textStyle,
               dotStyle: componentStyles?.list?.listItem?.dotStyle,
-              numberTextStyle: componentStyles?.list?.listItem?.numberTextStyle,
+              numberTextStyle: [
+                defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.numberTextStyle,
+              ],
             }}
             contentContainerStyle={componentStyles?.list?.contentContainerStyle}
             otherStyles={{
-              boldTextStyle: componentStyles?.list?.listItem?.boldTextStyle,
-              italicTextStyle: componentStyles?.list?.listItem?.italicTextStyle,
-              underlineTextStyle:
+              boldTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.boldTextStyle,
+                componentStyles?.list?.listItem?.boldTextStyle,
+              ],
+              italicTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.italicTextStyle,
+                componentStyles?.list?.listItem?.italicTextStyle,
+              ],
+              underlineTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.underlineTextStyle,
                 componentStyles?.list?.listItem?.underlineTextStyle,
-              codeTextStyle: componentStyles?.list?.listItem?.codeTextStyle,
-              markTextStyle: componentStyles?.list?.listItem?.markTextStyle,
-              linkTextStyle: componentStyles?.list?.listItem?.linkTextStyle,
+              ],
+              codeTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.codeTextStyle,
+                componentStyles?.list?.listItem?.codeTextStyle,
+              ],
+              markTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.markTextStyle,
+                componentStyles?.list?.listItem?.markTextStyle,
+              ],
+              linkTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.linkTextStyle,
+                componentStyles?.list?.listItem?.linkTextStyle,
+              ],
             }}
           />
         );
@@ -167,11 +266,18 @@ function useComponentMap(
             rowStyle={componentStyles?.table?.rowStyle}
             cellStyle={componentStyles?.table?.cellStyle}
             headerCellStyle={componentStyles?.table?.headerCellStyle}
-            cellTextStyle={componentStyles?.table?.cellTextStyle}
-            headerCellTextStyle={componentStyles?.table?.headerCellTextStyle}
+            cellTextStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.table?.cellTextStyle,
+            ]}
+            headerCellTextStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.table?.headerCellTextStyle,
+            ]}
             contentContainerStyle={
               componentStyles?.table?.contentContainerStyle
             }
+            separatorStyle={componentStyles?.table?.separatorStyle}
           />
         );
       },
@@ -183,8 +289,14 @@ function useComponentMap(
               containerStyle,
               componentStyles?.warning?.containerStyle,
             ]}
-            titleTextStyle={componentStyles?.warning?.titleTextStyle}
-            messageTextStyle={componentStyles?.warning?.messageTextStyle}
+            titleTextStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.warning?.titleTextStyle,
+            ]}
+            messageTextStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.warning?.messageTextStyle,
+            ]}
           />
         );
       },
@@ -197,7 +309,10 @@ function useComponentMap(
               componentStyles?.checklist?.containerStyle,
             ]}
             itemContainerStyle={componentStyles?.checklist?.itemContainerStyle}
-            textStyle={componentStyles?.checklist?.textStyle}
+            textStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.checklist?.textStyle,
+            ]}
             checkboxStyle={componentStyles?.checklist?.checkboxStyle}
             checkboxCheckedStyle={
               componentStyles?.checklist?.checkboxCheckedStyle
@@ -220,7 +335,10 @@ function useComponentMap(
               componentStyles?.code?.containerStyle,
             ]}
             codeContainerStyle={componentStyles?.code?.codeContainerStyle}
-            codeTextStyle={componentStyles?.code?.codeTextStyle}
+            codeTextStyle={[
+              defaultStyles?.textStyle,
+              componentStyles?.code?.codeTextStyle,
+            ]}
             {...componentProps?.code}
           />
         );
@@ -244,6 +362,7 @@ function useComponentMap(
     componentStyles,
     customComponents,
     componentProps,
+    defaultStyles,
   ]) as IComponentObject;
 }
 

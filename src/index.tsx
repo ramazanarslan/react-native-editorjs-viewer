@@ -11,10 +11,12 @@ const EditorJsViewer = ({
   componentStyles,
   style,
   componentProps,
+  defaultStyles,
 }: EditorJsViewerProps) => {
   const componentMap = useComponentMap(
     components,
     componentStyles,
+    defaultStyles,
     customComponents,
     componentProps
   );

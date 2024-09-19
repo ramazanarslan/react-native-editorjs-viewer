@@ -118,6 +118,7 @@ export type EditorJsViewerProps = {
       headerCellTextStyle?: TextProps['style'];
       rowStyle?: ViewProps['style'];
       contentContainerStyle?: ViewProps['style'];
+      separatorStyle?: ViewProps['style'];
     };
     warning?: {
       containerStyle?: ViewProps['style'];

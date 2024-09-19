@@ -14,6 +14,7 @@ export type ITableProps = {
   headerCellStyle?: ViewProps['style'];
   cellTextStyle?: TextProps['style'];
   headerCellTextStyle?: TextProps['style'];
+  separatorStyle?: ViewProps['style'];
 };
 
 const Table = ({
@@ -25,6 +26,7 @@ const Table = ({
   headerCellTextStyle,
   contentContainerStyle,
   rowStyle,
+  separatorStyle,
 }: ITableProps) => {
   const { content, withHeadings } = data;
 
@@ -39,6 +41,8 @@ const Table = ({
               cellStyle,
               index === 0 && withHeadings && styles.headerCell,
               index === 0 && withHeadings && headerCellStyle,
+              cellIndex === 0 && styles.headerCell,
+              index === 0 && cellIndex === 0 && withHeadings && headerCellStyle,
             ]}
           >
             <Text
@@ -73,7 +77,10 @@ const Table = ({
       renderItem={renderItem}
       keyExtractor={(_, index) => index.toString()}
       style={[styles.container, containerStyle]}
-      contentContainerStyle={contentContainerStyle}
+      contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
+      ItemSeparatorComponent={() => (
+        <View style={[styles.separator, separatorStyle]} />
+      )}
       scrollEnabled={false}
     />
   );
@@ -83,13 +90,20 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 8,
   },
+  contentContainer: {
+    borderRadius: 8,
+    overflow: 'hidden',
+    borderWidth: 1,
+  },
+  separator: {
+    height: 1,
+    backgroundColor: '#000',
+  },
   row: {
     flexDirection: 'row',
   },
   cell: {
     padding: 8,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
     justifyContent: 'center',
     flex: 1,
   },
