@@ -7,6 +7,7 @@ import QuoteComponent from './quote';
 import FallbackComponent from './fallback';
 import ListComponent from './list';
 import TableComponent from './table';
+import WarningComponent from './warning';
 
 export {
   ParagraphComponent,
@@ -18,4 +19,5 @@ export {
   FallbackComponent,
   ListComponent,
   TableComponent,
+  WarningComponent,
 };

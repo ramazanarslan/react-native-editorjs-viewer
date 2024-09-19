@@ -8,6 +8,7 @@ import type { ILinkToolProps } from './components/linkTool';
 import type { IQuoteProps } from './components/quote';
 import type { IListProps } from './components/list';
 import type { ITableProps } from './components/table';
+import type { IWarningProps } from './components/warning';
 
 export interface IEditorJsData {
   version?: string;
@@ -53,6 +54,7 @@ export type EditorJsViewerProps = {
     Quote?: React.ComponentType<IQuoteProps>;
     List?: React.ComponentType<IListProps>;
     Table?: React.ComponentType<ITableProps>;
+    Warning?: React.ComponentType<IWarningProps>;
   };
   customComponents?: IComponentObject;
   style?: ViewProps['style'];
@@ -104,6 +106,11 @@ export type EditorJsViewerProps = {
       cellTextStyle?: TextProps['style'];
       headerCellTextStyle?: TextProps['style'];
       rowStyle?: ViewProps['style'];
+    };
+    warning?: {
+      containerStyle?: ViewProps['style'];
+      titleTextStyle?: TextProps['style'];
+      messageTextStyle?: TextProps['style'];
     };
   };
 };

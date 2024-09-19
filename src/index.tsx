@@ -10,6 +10,7 @@ import {
   QuoteComponent,
   ListComponent,
   TableComponent,
+  WarningComponent,
 } from './components';
 import type {
   EditorJsViewerProps,
@@ -34,6 +35,7 @@ const EditorJsViewer = ({
     const Quote = components?.Quote || QuoteComponent;
     const List = components?.List || ListComponent;
     const Table = components?.Table || TableComponent;
+    const Warning = components?.Warning || WarningComponent;
 
     return {
       paragraph: ({ block, containerStyle }: IComponentBlockProps) => {
@@ -164,6 +166,19 @@ const EditorJsViewer = ({
             headerCellStyle={componentStyles?.table?.headerCellStyle}
             cellTextStyle={componentStyles?.table?.cellTextStyle}
             headerCellTextStyle={componentStyles?.table?.headerCellTextStyle}
+          />
+        );
+      },
+      warning: ({ block, containerStyle }: IComponentBlockProps) => {
+        return (
+          <Warning
+            data={block.data}
+            containerStyle={[
+              containerStyle,
+              componentStyles?.warning?.containerStyle,
+            ]}
+            titleTextStyle={componentStyles?.warning?.titleTextStyle}
+            messageTextStyle={componentStyles?.warning?.messageTextStyle}
           />
         );
       },
