@@ -9,6 +9,7 @@ import type { IQuoteProps } from './components/quote';
 import type { IListProps } from './components/list';
 import type { ITableProps } from './components/table';
 import type { IWarningProps } from './components/warning';
+import type { ICheckListProps } from './components/checkList';
 
 export interface IEditorJsData {
   version?: string;
@@ -55,6 +56,7 @@ export type EditorJsViewerProps = {
     List?: React.ComponentType<IListProps>;
     Table?: React.ComponentType<ITableProps>;
     Warning?: React.ComponentType<IWarningProps>;
+    CheckList?: React.ComponentType<ICheckListProps>;
   };
   customComponents?: IComponentObject;
   style?: ViewProps['style'];
@@ -111,6 +113,14 @@ export type EditorJsViewerProps = {
       containerStyle?: ViewProps['style'];
       titleTextStyle?: TextProps['style'];
       messageTextStyle?: TextProps['style'];
+    };
+    checklist?: {
+      containerStyle?: ViewProps['style'];
+      itemContainerStyle?: ViewProps['style'];
+      textStyle?: TextProps['style'];
+      checkboxStyle?: ViewProps['style'];
+      checkboxCheckedStyle?: ViewProps['style'];
+      checkboxUncheckedStyle?: ViewProps['style'];
     };
   };
 };

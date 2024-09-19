@@ -201,6 +201,26 @@
         "title": "Note:",
         "message": "Avoid using this method just for lulz. It can be very dangerous opposite your daily fun stuff."
       }
+    },
+    {
+      "id": "random127",
+      "type": "checklist",
+      "data": {
+        "items": [
+          {
+            "text": "This is a block-styled editor",
+            "checked": true
+          },
+          {
+            "text": "Clean output data",
+            "checked": false
+          },
+          {
+            "text": "Simple and powerful API",
+            "checked": true
+          }
+        ]
+      }
     }
   ],
   "version": "2.8.1"

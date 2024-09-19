@@ -8,6 +8,7 @@ import FallbackComponent from './fallback';
 import ListComponent from './list';
 import TableComponent from './table';
 import WarningComponent from './warning';
+import CheckListComponent from './checkList';
 
 export {
   ParagraphComponent,
@@ -20,4 +21,5 @@ export {
   ListComponent,
   TableComponent,
   WarningComponent,
+  CheckListComponent,
 };
