@@ -143,6 +143,7 @@ function useComponentMap(
               dotStyle: componentStyles?.list?.listItem?.dotStyle,
               numberTextStyle: componentStyles?.list?.listItem?.numberTextStyle,
             }}
+            contentContainerStyle={componentStyles?.list?.contentContainerStyle}
             otherStyles={{
               boldTextStyle: componentStyles?.list?.listItem?.boldTextStyle,
               italicTextStyle: componentStyles?.list?.listItem?.italicTextStyle,
@@ -168,6 +169,9 @@ function useComponentMap(
             headerCellStyle={componentStyles?.table?.headerCellStyle}
             cellTextStyle={componentStyles?.table?.cellTextStyle}
             headerCellTextStyle={componentStyles?.table?.headerCellTextStyle}
+            contentContainerStyle={
+              componentStyles?.table?.contentContainerStyle
+            }
           />
         );
       },
@@ -200,6 +204,9 @@ function useComponentMap(
             }
             checkboxUncheckedStyle={
               componentStyles?.checklist?.checkboxUncheckedStyle
+            }
+            contentContainerStyle={
+              componentStyles?.checklist?.contentContainerStyle
             }
           />
         );

@@ -11,6 +11,7 @@ export type ICheckListProps = {
     items: CheckListItem[];
   };
   containerStyle?: ViewProps['style'];
+  contentContainerStyle?: ViewProps['style'];
   itemContainerStyle?: ViewProps['style'];
   textStyle?: TextProps['style'];
   checkboxStyle?: ViewProps['style'];
@@ -44,6 +45,7 @@ const CheckList = ({
   checkboxStyle,
   checkboxCheckedStyle,
   checkboxUncheckedStyle,
+  contentContainerStyle,
 }: ICheckListProps) => {
   const renderItem = ({ item }: { item: CheckListItem }) => (
     <View style={[styles.itemContainer, itemContainerStyle]}>
@@ -64,6 +66,7 @@ const CheckList = ({
       renderItem={renderItem}
       keyExtractor={(_, index) => index.toString()}
       style={[styles.container, containerStyle]}
+      contentContainerStyle={contentContainerStyle}
     />
   );
 };

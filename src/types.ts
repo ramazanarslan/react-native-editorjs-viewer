@@ -67,6 +67,7 @@ export type EditorJsViewerProps = {
   };
   customComponents?: IComponentObject;
   style?: ViewProps['style'];
+  defaultStyles?: IUseParseHtmlTags['styles'];
   componentStyles?: {
     paragraph?: IUseParseHtmlTags['styles'];
     header?: {
@@ -101,6 +102,7 @@ export type EditorJsViewerProps = {
     };
     list?: {
       containerStyle?: ViewProps['style'];
+      contentContainerStyle?: ViewProps['style'];
       listItem?: {
         containerStyle?: ViewProps['style'];
         textStyle?: TextProps['style'];
@@ -115,6 +117,7 @@ export type EditorJsViewerProps = {
       cellTextStyle?: TextProps['style'];
       headerCellTextStyle?: TextProps['style'];
       rowStyle?: ViewProps['style'];
+      contentContainerStyle?: ViewProps['style'];
     };
     warning?: {
       containerStyle?: ViewProps['style'];
@@ -128,6 +131,7 @@ export type EditorJsViewerProps = {
       checkboxStyle?: ViewProps['style'];
       checkboxCheckedStyle?: ViewProps['style'];
       checkboxUncheckedStyle?: ViewProps['style'];
+      contentContainerStyle?: ViewProps['style'];
     };
     code?: {
       containerStyle?: ViewProps['style'];

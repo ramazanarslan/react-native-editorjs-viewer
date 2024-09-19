@@ -8,6 +8,7 @@ export type ITableProps = {
     withHeadings: boolean;
   };
   containerStyle?: ViewProps['style'];
+  contentContainerStyle?: ViewProps['style'];
   rowStyle?: ViewProps['style'];
   cellStyle?: ViewProps['style'];
   headerCellStyle?: ViewProps['style'];
@@ -22,12 +23,14 @@ const Table = ({
   headerCellStyle,
   cellTextStyle,
   headerCellTextStyle,
+  contentContainerStyle,
+  rowStyle,
 }: ITableProps) => {
   const { content, withHeadings } = data;
 
   const renderItem = useCallback(
     ({ item, index }: ListRenderItemInfo<string[]>) => (
-      <View style={styles.row}>
+      <View style={[styles.row, rowStyle]}>
         {item.map((cell, cellIndex) => (
           <View
             key={cellIndex}
@@ -60,6 +63,7 @@ const Table = ({
       cellTextStyle,
       headerCellTextStyle,
       withHeadings,
+      rowStyle,
     ]
   );
 
@@ -69,6 +73,7 @@ const Table = ({
       renderItem={renderItem}
       keyExtractor={(_, index) => index.toString()}
       style={[styles.container, containerStyle]}
+      contentContainerStyle={contentContainerStyle}
       scrollEnabled={false}
     />
   );

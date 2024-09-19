@@ -14,6 +14,7 @@ export type IListProps = {
     style: 'ordered' | 'unordered';
   };
   containerStyle?: ViewProps['style'];
+  contentContainerStyle?: ViewProps['style'];
   listItemStyle?: {
     containerStyle?: ViewProps['style'];
     textStyle?: TextProps['style'];
@@ -26,6 +27,7 @@ export type IListProps = {
 const List = ({
   data,
   containerStyle,
+  contentContainerStyle,
   listItemStyle,
   otherStyles,
 }: IListProps) => {
@@ -37,8 +39,9 @@ const List = ({
     <SectionList
       scrollEnabled={false}
       style={[styles.list, containerStyle]}
+      contentContainerStyle={contentContainerStyle}
       sections={sections}
-      keyExtractor={(item, index) => item + index}
+      keyExtractor={(_, index) => index.toString()}
       renderItem={({ item, index }) => (
         <ListItem
           value={item}
