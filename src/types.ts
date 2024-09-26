@@ -70,18 +70,15 @@ export type EditorJsViewerProps = {
   defaultStyles?: IUseParseHtmlTags['styles'];
   componentStyles?: {
     paragraph?: IUseParseHtmlTags['styles'];
-    header?: {
-      textStyle?: TextProps['style'];
-    };
+    header?: IUseParseHtmlTags['styles'];
     delimiter?: {
       containerStyle?: ViewProps['style'];
       textStyle?: TextProps['style'];
     };
     image?: {
-      textStyle?: TextProps['style'];
       imageStyle?: ImageProps['style'];
       containerStyle?: ViewProps['style'];
-    };
+    } & IUseParseHtmlTags['styles'];
     linkTool?: {
       wrapperStyle?: ViewProps['style'];
       containerStyle?: ViewProps['style'];
@@ -127,11 +124,15 @@ export type EditorJsViewerProps = {
     };
     checklist?: {
       containerStyle?: ViewProps['style'];
-      itemContainerStyle?: ViewProps['style'];
-      textStyle?: TextProps['style'];
-      checkboxStyle?: ViewProps['style'];
-      checkboxCheckedStyle?: ViewProps['style'];
-      checkboxUncheckedStyle?: ViewProps['style'];
+      checkListItem?: {
+        containerStyle?: ViewProps['style'];
+        textStyle?: TextProps['style'];
+        checkBox?: {
+          style?: ViewProps['style'];
+          checkedStyle?: ViewProps['style'];
+          uncheckedStyle?: ViewProps['style'];
+        };
+      } & IUseParseHtmlTags['styles'];
       contentContainerStyle?: ViewProps['style'];
     };
     code?: {

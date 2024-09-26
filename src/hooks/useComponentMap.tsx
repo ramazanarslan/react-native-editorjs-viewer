@@ -93,6 +93,38 @@ function useComponentMap(
               defaultStyles?.textStyle,
               componentStyles?.header?.textStyle,
             ]}
+            otherStyles={{
+              boldTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.boldTextStyle,
+                componentStyles?.header?.boldTextStyle,
+              ],
+              italicTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.italicTextStyle,
+                componentStyles?.header?.italicTextStyle,
+              ],
+              underlineTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.underlineTextStyle,
+                componentStyles?.header?.underlineTextStyle,
+              ],
+              codeTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.codeTextStyle,
+                componentStyles?.header?.codeTextStyle,
+              ],
+              markTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.markTextStyle,
+                componentStyles?.header?.markTextStyle,
+              ],
+              linkTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.linkTextStyle,
+                componentStyles?.header?.linkTextStyle,
+              ],
+            }}
           />
         );
       },
@@ -124,6 +156,38 @@ function useComponentMap(
               componentStyles?.image?.textStyle,
             ]}
             imageStyle={componentStyles?.image?.imageStyle}
+            otherStyles={{
+              boldTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.boldTextStyle,
+                componentStyles?.image?.boldTextStyle,
+              ],
+              italicTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.italicTextStyle,
+                componentStyles?.image?.italicTextStyle,
+              ],
+              underlineTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.underlineTextStyle,
+                componentStyles?.image?.underlineTextStyle,
+              ],
+              codeTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.codeTextStyle,
+                componentStyles?.image?.codeTextStyle,
+              ],
+              markTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.markTextStyle,
+                componentStyles?.image?.markTextStyle,
+              ],
+              linkTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.linkTextStyle,
+                componentStyles?.image?.linkTextStyle,
+              ],
+            }}
           />
         );
       },
@@ -323,21 +387,58 @@ function useComponentMap(
               containerStyle,
               componentStyles?.checklist?.containerStyle,
             ]}
-            itemContainerStyle={componentStyles?.checklist?.itemContainerStyle}
+            itemContainerStyle={
+              componentStyles?.checklist?.checkListItem?.containerStyle
+            }
             textStyle={[
               defaultStyles?.textStyle,
-              componentStyles?.checklist?.textStyle,
+              componentStyles?.checklist?.checkListItem?.textStyle,
             ]}
-            checkboxStyle={componentStyles?.checklist?.checkboxStyle}
+            checkboxStyle={
+              componentStyles?.checklist?.checkListItem?.checkBox?.style
+            }
             checkboxCheckedStyle={
-              componentStyles?.checklist?.checkboxCheckedStyle
+              componentStyles?.checklist?.checkListItem?.checkBox?.checkedStyle
             }
             checkboxUncheckedStyle={
-              componentStyles?.checklist?.checkboxUncheckedStyle
+              componentStyles?.checklist?.checkListItem?.checkBox
+                ?.uncheckedStyle
             }
             contentContainerStyle={
               componentStyles?.checklist?.contentContainerStyle
             }
+            otherStyles={{
+              boldTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.boldTextStyle,
+                componentStyles?.checklist?.checkListItem?.boldTextStyle,
+              ],
+              italicTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.italicTextStyle,
+                componentStyles?.checklist?.checkListItem?.italicTextStyle,
+              ],
+              underlineTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.underlineTextStyle,
+                componentStyles?.checklist?.checkListItem?.underlineTextStyle,
+              ],
+              codeTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.codeTextStyle,
+                componentStyles?.checklist?.checkListItem?.codeTextStyle,
+              ],
+              markTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.markTextStyle,
+                componentStyles?.checklist?.checkListItem?.markTextStyle,
+              ],
+              linkTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.linkTextStyle,
+                componentStyles?.checklist?.checkListItem?.linkTextStyle,
+              ],
+            }}
           />
         );
       },

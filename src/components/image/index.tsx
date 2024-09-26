@@ -7,6 +7,9 @@ import {
   type ViewProps,
 } from 'react-native';
 import { AspectImage } from '../../subComponents';
+import type { IUseParseHtmlTags } from '../../types';
+import { useMemo } from 'react';
+import { useParseHtmlTags } from '../../hooks';
 
 export type IImageProps = {
   data: {
@@ -18,6 +21,7 @@ export type IImageProps = {
   containerStyle?: ViewProps['style'];
   imageStyle?: ImageProps['style'];
   textStyle?: TextProps['style'];
+  otherStyles?: IUseParseHtmlTags['styles'];
 };
 
 const Image = ({
@@ -25,7 +29,20 @@ const Image = ({
   containerStyle,
   textStyle,
   imageStyle,
+  otherStyles,
 }: IImageProps) => {
+  const { parseHtmlTag, defaultTagList } = useParseHtmlTags({
+    styles: {
+      ...otherStyles,
+      textStyle: textStyle,
+    },
+  });
+
+  const parsedText = useMemo(
+    () => (data?.caption ? parseHtmlTag(defaultTagList, data.caption) : null),
+    [data.caption, defaultTagList, parseHtmlTag]
+  );
+
   return (
     <View style={[styles.container, containerStyle]}>
       <AspectImage
@@ -37,9 +54,9 @@ const Image = ({
         imageStyle={imageStyle}
       />
 
-      {data.caption && (
+      {parsedText && (
         <Text aria-hidden style={[styles.caption, textStyle]}>
-          {data.caption}
+          {parsedText}
         </Text>
       )}
     </View>

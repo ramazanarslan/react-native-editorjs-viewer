@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import { StyleSheet, Text, type TextProps } from 'react-native';
+import type { IUseParseHtmlTags } from '../../types';
+import { useParseHtmlTags } from '../../hooks';
 
 export type IHeaderProps = {
   data: {
@@ -7,12 +9,25 @@ export type IHeaderProps = {
     text: string;
   };
   style?: TextProps['style'];
+  otherStyles?: IUseParseHtmlTags['styles'];
 };
 
-const Header = ({ data, style }: IHeaderProps) => {
+const Header = ({ data, style, otherStyles }: IHeaderProps) => {
   const headingStyleByLevel = useMemo(
     () => styles[`h${data.level}`],
     [data.level]
+  );
+
+  const { parseHtmlTag, defaultTagList } = useParseHtmlTags({
+    styles: {
+      ...otherStyles,
+      textStyle: style,
+    },
+  });
+
+  const parsedText = useMemo(
+    () => parseHtmlTag(defaultTagList, data.text),
+    [data.text, defaultTagList, parseHtmlTag]
   );
 
   return (
@@ -22,7 +37,7 @@ const Header = ({ data, style }: IHeaderProps) => {
       allowFontScaling={true}
       style={[styles.header, headingStyleByLevel, style]}
     >
-      {data.text}
+      {parsedText}
     </Text>
   );
 };
