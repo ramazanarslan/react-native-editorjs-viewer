@@ -1,16 +1,18 @@
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import data from './data.json';
 import EditorJsViewer from 'react-native-editorjs-viewer';
 
 export default function App() {
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <EditorJsViewer
-        data={data}
-        showFallback={true}
-        style={styles.editorJsContainer}
-      />
-    </ScrollView>
+    <SafeAreaView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <EditorJsViewer
+          data={data}
+          showFallback={true}
+          style={styles.editorJsContainer}
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

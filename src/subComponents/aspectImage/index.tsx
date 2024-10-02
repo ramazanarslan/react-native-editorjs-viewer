@@ -37,7 +37,7 @@ const AspectImage = ({ uri, imageStyle, ...props }: IAspectImageProps) => {
 
   return (
     <View onLayout={onLayout} style={styles.container}>
-      {hasErrorOnSize ? (
+      {hasErrorOnSize || !width || !height ? (
         <Image {...props} style={[styles.defaultImage, imageStyle]} />
       ) : (
         <Image {...props} style={[{ width, height }, imageStyle]} />
