@@ -370,6 +370,7 @@ function useComponentMap(
             ]}
             titleTextStyle={[
               defaultStyles?.textStyle,
+              defaultStyles?.boldTextStyle,
               componentStyles?.warning?.boldTextStyle,
               componentStyles?.warning?.titleTextStyle,
             ]}
