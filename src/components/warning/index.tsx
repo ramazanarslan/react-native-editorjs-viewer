@@ -1,5 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
+import { useParseHtmlTags } from '../../hooks';
+import { useMemo } from 'react';
+import type { IUseParseHtmlTags } from '../../types';
 
 export type IWarningProps = {
   data: {
@@ -9,6 +12,7 @@ export type IWarningProps = {
   containerStyle?: ViewProps['style'];
   titleTextStyle?: TextProps['style'];
   messageTextStyle?: TextProps['style'];
+  otherStyles?: IUseParseHtmlTags['styles'];
 };
 
 const Warning = ({
@@ -16,11 +20,37 @@ const Warning = ({
   containerStyle,
   titleTextStyle,
   messageTextStyle,
+  otherStyles,
 }: IWarningProps) => {
+  const { defaultTagList, parseHtmlTag: parseTitleHtmlTag } = useParseHtmlTags({
+    styles: {
+      ...otherStyles,
+      textStyle: titleTextStyle,
+    },
+  });
+
+  const { parseHtmlTag: parseMessageHtmlTag } = useParseHtmlTags({
+    styles: {
+      ...otherStyles,
+      textStyle: messageTextStyle,
+    },
+  });
+
+  const parsedTitle = useMemo(
+    () => (data?.title ? parseTitleHtmlTag(defaultTagList, data.title) : null),
+    [data.title, defaultTagList, parseTitleHtmlTag]
+  );
+
+  const parsedMessage = useMemo(
+    () =>
+      data?.message ? parseMessageHtmlTag(defaultTagList, data.message) : null,
+    [data.message, defaultTagList, parseMessageHtmlTag]
+  );
+
   return (
     <View style={[styles.container, containerStyle]}>
-      <Text style={[styles.title, titleTextStyle]}>{data.title}</Text>
-      <Text style={[styles.message, messageTextStyle]}>{data.message}</Text>
+      <Text style={[styles.title, titleTextStyle]}>{parsedTitle}</Text>
+      <Text style={[styles.message, messageTextStyle]}>{parsedMessage}</Text>
     </View>
   );
 };

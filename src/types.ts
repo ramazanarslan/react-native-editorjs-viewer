@@ -120,8 +120,8 @@ export type EditorJsViewerProps = {
     warning?: {
       containerStyle?: ViewProps['style'];
       titleTextStyle?: TextProps['style'];
-      messageTextStyle?: TextProps['style'];
-    };
+      textStyle?: TextProps['style'];
+    } & IUseParseHtmlTags['styles'];
     checklist?: {
       containerStyle?: ViewProps['style'];
       checkListItem?: {

@@ -370,12 +370,45 @@ function useComponentMap(
             ]}
             titleTextStyle={[
               defaultStyles?.textStyle,
+              componentStyles?.warning?.boldTextStyle,
               componentStyles?.warning?.titleTextStyle,
             ]}
             messageTextStyle={[
               defaultStyles?.textStyle,
-              componentStyles?.warning?.messageTextStyle,
+              componentStyles?.warning?.textStyle,
             ]}
+            otherStyles={{
+              boldTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.boldTextStyle,
+                componentStyles?.warning?.boldTextStyle,
+              ],
+              italicTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.italicTextStyle,
+                componentStyles?.warning?.italicTextStyle,
+              ],
+              underlineTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.underlineTextStyle,
+                componentStyles?.warning?.underlineTextStyle,
+              ],
+              codeTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.codeTextStyle,
+                componentStyles?.warning?.codeTextStyle,
+              ],
+              markTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.markTextStyle,
+                componentStyles?.warning?.markTextStyle,
+              ],
+              linkTextStyle: [
+                defaultStyles?.textStyle,
+                defaultStyles?.linkTextStyle,
+                componentStyles?.warning?.linkTextStyle,
+              ],
+            }}
           />
         );
       },
