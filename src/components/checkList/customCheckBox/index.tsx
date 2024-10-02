@@ -5,6 +5,7 @@ type ICustomCheckboxProps = {
   style?: ViewProps['style'];
   checkedStyle?: ViewProps['style'];
   uncheckedStyle?: ViewProps['style'];
+  checkmarkStyle?: ViewProps['style'];
 };
 
 const CustomCheckbox = ({
@@ -12,11 +13,12 @@ const CustomCheckbox = ({
   style,
   checkedStyle,
   uncheckedStyle,
+  checkmarkStyle,
 }: ICustomCheckboxProps) => (
   <View
     style={[styles.checkbox, style, checked ? checkedStyle : uncheckedStyle]}
   >
-    {checked && <View style={styles.checkmark} />}
+    {checked && <View style={[styles.checkmark, checkmarkStyle]} />}
   </View>
 );
 

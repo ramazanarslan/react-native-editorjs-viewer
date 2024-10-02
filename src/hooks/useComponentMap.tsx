@@ -437,6 +437,10 @@ function useComponentMap(
               componentStyles?.checklist?.checkListItem?.checkBox
                 ?.uncheckedStyle
             }
+            checkmarkStyle={
+              componentStyles?.checklist?.checkListItem?.checkBox
+                ?.checkmarkStyle
+            }
             contentContainerStyle={
               componentStyles?.checklist?.contentContainerStyle
             }

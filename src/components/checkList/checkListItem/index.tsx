@@ -23,6 +23,7 @@ export type ICheckListItemProps = {
   checkboxUncheckedStyle?: ViewProps['style'];
   textStyle?: TextProps['style'];
   otherStyles?: IUseParseHtmlTags['styles'];
+  checkmarkStyle?: ViewProps['style'];
 };
 
 const CheckListItem = ({
@@ -33,6 +34,7 @@ const CheckListItem = ({
   checkboxUncheckedStyle,
   textStyle,
   otherStyles,
+  checkmarkStyle,
 }: ICheckListItemProps) => {
   const { parseHtmlTag, defaultTagList } = useParseHtmlTags({
     styles: {
@@ -53,6 +55,7 @@ const CheckListItem = ({
         style={checkboxStyle}
         checkedStyle={checkboxCheckedStyle}
         uncheckedStyle={checkboxUncheckedStyle}
+        checkmarkStyle={checkmarkStyle}
       />
       <Text style={[styles.text, textStyle]}>{parsedText}</Text>
     </View>

@@ -1,6 +1,6 @@
 {
   "name": "react-native-editorjs-viewer",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A React Native component for rendering Editor.js content, supporting various block types with customizable styling.",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",

@@ -131,6 +131,7 @@ export type EditorJsViewerProps = {
           style?: ViewProps['style'];
           checkedStyle?: ViewProps['style'];
           uncheckedStyle?: ViewProps['style'];
+          checkmarkStyle?: ViewProps['style'];
         };
       } & IUseParseHtmlTags['styles'];
       contentContainerStyle?: ViewProps['style'];
