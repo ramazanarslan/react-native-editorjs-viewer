@@ -12976,9 +12976,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-react-native-code-highlighter@batuhanoztrk/react-native-code-highlighter:
+"react-native-code-highlighter@npm:^1.2.3":
   version: 1.2.3
-  resolution: "react-native-code-highlighter@https://github.com/batuhanoztrk/react-native-code-highlighter.git#commit=8572b94b7c38cbb49bce395f80e047e5be10ae97"
+  resolution: "react-native-code-highlighter@npm:1.2.3"
   dependencies:
     css-to-react-native: 3.2.0
     react-syntax-highlighter: 15.5.0
@@ -12987,7 +12987,7 @@ react-native-code-highlighter@batuhanoztrk/react-native-code-highlighter:
     react: 16.8.6 || ^17.0.0 || ^18.0.0
     react-native: ">=0.60.0"
     react-syntax-highlighter: ">=15.5.0"
-  checksum: eca6737216c9d5a0edbe0adac8f7e05202cdcc879a840cbddb179be2f908a20e89534978b091c2c0d4caa770acc6d49d591b2c1503cc39dc4f1296d6b2a33ec3
+  checksum: a5755475fe97d9a55ca8a52af5d6b32ca948590cf70d0fb64469db0db150f06cdd6629bb6edfb53fd2c6cd0a1593e8a00159e034afb50020c02449f9747bfd03
   languageName: node
   linkType: hard
 
@@ -13029,7 +13029,7 @@ react-native-code-highlighter@batuhanoztrk/react-native-code-highlighter:
     react: 18.2.0
     react-native: 0.74.5
     react-native-builder-bob: ^0.30.2
-    react-native-code-highlighter: batuhanoztrk/react-native-code-highlighter
+    react-native-code-highlighter: ^1.2.3
     react-native-render-html: ^6.3.4
     react-native-syntax-highlighter: ^2.1.0
     react-syntax-highlighter: ^15.5.0

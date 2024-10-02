@@ -1,6 +1,6 @@
 {
   "name": "react-native-editorjs-viewer",
-  "version": "0.1.2",
+  "version": "0.1.0",
   "description": "A React Native component for rendering Editor.js content, supporting various block types with customizable styling.",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -52,14 +52,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/batuhanoztrk/react-native-editorjs-viewer.git"
+    "url": "git+https://github.com/fintables/react-native-editorjs-viewer.git"
   },
-  "author": "Batuhan Öztürk <batuhanoztrk@hotmail.com> (https://github.com/batuhanoztrk)",
+  "author": "Fintables <hello@fintables.com> (https://github.com/fintables)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/batuhanoztrk/react-native-editorjs-viewer/issues"
+    "url": "https://github.com/fintables/react-native-editorjs-viewer/issues"
   },
-  "homepage": "https://github.com/batuhanoztrk/react-native-editorjs-viewer#readme",
+  "homepage": "https://github.com/fintables/react-native-editorjs-viewer#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -186,7 +186,7 @@
   },
   "dependencies": {
     "html-entities": "^2.5.2",
-    "react-native-code-highlighter": "batuhanoztrk/react-native-code-highlighter",
+    "react-native-code-highlighter": "^1.2.3",
     "react-native-render-html": "^6.3.4",
     "react-native-syntax-highlighter": "^2.1.0",
     "react-syntax-highlighter": "^15.5.0"
