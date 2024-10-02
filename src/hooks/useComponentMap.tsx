@@ -53,30 +53,37 @@ function useComponentMap(
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.paragraph?.textStyle,
                 defaultStyles?.boldTextStyle,
                 componentStyles?.paragraph?.boldTextStyle,
               ],
               italicTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.paragraph?.textStyle,
                 defaultStyles?.italicTextStyle,
                 componentStyles?.paragraph?.italicTextStyle,
               ],
               underlineTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.paragraph?.textStyle,
                 defaultStyles?.underlineTextStyle,
                 componentStyles?.paragraph?.underlineTextStyle,
               ],
               codeTextStyle: [
+                defaultStyles?.textStyle,
+                componentStyles?.paragraph?.textStyle,
                 defaultStyles?.codeTextStyle,
                 componentStyles?.paragraph?.codeTextStyle,
               ],
               markTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.paragraph?.textStyle,
                 defaultStyles?.markTextStyle,
                 componentStyles?.paragraph?.markTextStyle,
               ],
               linkTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.paragraph?.textStyle,
                 defaultStyles?.linkTextStyle,
                 componentStyles?.paragraph?.linkTextStyle,
               ],
@@ -96,31 +103,37 @@ function useComponentMap(
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.header?.textStyle,
                 defaultStyles?.boldTextStyle,
                 componentStyles?.header?.boldTextStyle,
               ],
               italicTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.header?.textStyle,
                 defaultStyles?.italicTextStyle,
                 componentStyles?.header?.italicTextStyle,
               ],
               underlineTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.header?.textStyle,
                 defaultStyles?.underlineTextStyle,
                 componentStyles?.header?.underlineTextStyle,
               ],
               codeTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.header?.textStyle,
                 defaultStyles?.codeTextStyle,
                 componentStyles?.header?.codeTextStyle,
               ],
               markTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.header?.textStyle,
                 defaultStyles?.markTextStyle,
                 componentStyles?.header?.markTextStyle,
               ],
               linkTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.header?.textStyle,
                 defaultStyles?.linkTextStyle,
                 componentStyles?.header?.linkTextStyle,
               ],
@@ -159,31 +172,37 @@ function useComponentMap(
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.image?.textStyle,
                 defaultStyles?.boldTextStyle,
                 componentStyles?.image?.boldTextStyle,
               ],
               italicTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.image?.textStyle,
                 defaultStyles?.italicTextStyle,
                 componentStyles?.image?.italicTextStyle,
               ],
               underlineTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.image?.textStyle,
                 defaultStyles?.underlineTextStyle,
                 componentStyles?.image?.underlineTextStyle,
               ],
               codeTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.image?.textStyle,
                 defaultStyles?.codeTextStyle,
                 componentStyles?.image?.codeTextStyle,
               ],
               markTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.image?.textStyle,
                 defaultStyles?.markTextStyle,
                 componentStyles?.image?.markTextStyle,
               ],
               linkTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.image?.textStyle,
                 defaultStyles?.linkTextStyle,
                 componentStyles?.image?.linkTextStyle,
               ],
@@ -244,31 +263,37 @@ function useComponentMap(
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.quote?.textStyle,
                 defaultStyles?.boldTextStyle,
                 componentStyles?.quote?.boldTextStyle,
               ],
               italicTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.quote?.textStyle,
                 defaultStyles?.italicTextStyle,
                 componentStyles?.quote?.italicTextStyle,
               ],
               underlineTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.quote?.textStyle,
                 defaultStyles?.underlineTextStyle,
                 componentStyles?.quote?.underlineTextStyle,
               ],
               codeTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.quote?.textStyle,
                 defaultStyles?.codeTextStyle,
                 componentStyles?.quote?.codeTextStyle,
               ],
               markTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.quote?.textStyle,
                 defaultStyles?.markTextStyle,
                 componentStyles?.quote?.markTextStyle,
               ],
               linkTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.quote?.textStyle,
                 defaultStyles?.linkTextStyle,
                 componentStyles?.quote?.linkTextStyle,
               ],
@@ -293,6 +318,7 @@ function useComponentMap(
               dotStyle: componentStyles?.list?.listItem?.dotStyle,
               numberTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.textStyle,
                 componentStyles?.list?.listItem?.numberTextStyle,
               ],
             }}
@@ -300,31 +326,37 @@ function useComponentMap(
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.textStyle,
                 defaultStyles?.boldTextStyle,
                 componentStyles?.list?.listItem?.boldTextStyle,
               ],
               italicTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.textStyle,
                 defaultStyles?.italicTextStyle,
                 componentStyles?.list?.listItem?.italicTextStyle,
               ],
               underlineTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.textStyle,
                 defaultStyles?.underlineTextStyle,
                 componentStyles?.list?.listItem?.underlineTextStyle,
               ],
               codeTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.textStyle,
                 defaultStyles?.codeTextStyle,
                 componentStyles?.list?.listItem?.codeTextStyle,
               ],
               markTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.textStyle,
                 defaultStyles?.markTextStyle,
                 componentStyles?.list?.listItem?.markTextStyle,
               ],
               linkTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.list?.listItem?.textStyle,
                 defaultStyles?.linkTextStyle,
                 componentStyles?.list?.listItem?.linkTextStyle,
               ],
@@ -381,31 +413,37 @@ function useComponentMap(
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.warning?.textStyle,
                 defaultStyles?.boldTextStyle,
                 componentStyles?.warning?.boldTextStyle,
               ],
               italicTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.warning?.textStyle,
                 defaultStyles?.italicTextStyle,
                 componentStyles?.warning?.italicTextStyle,
               ],
               underlineTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.warning?.textStyle,
                 defaultStyles?.underlineTextStyle,
                 componentStyles?.warning?.underlineTextStyle,
               ],
               codeTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.warning?.textStyle,
                 defaultStyles?.codeTextStyle,
                 componentStyles?.warning?.codeTextStyle,
               ],
               markTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.warning?.textStyle,
                 defaultStyles?.markTextStyle,
                 componentStyles?.warning?.markTextStyle,
               ],
               linkTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.warning?.textStyle,
                 defaultStyles?.linkTextStyle,
                 componentStyles?.warning?.linkTextStyle,
               ],
@@ -448,31 +486,37 @@ function useComponentMap(
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.checklist?.checkListItem?.textStyle,
                 defaultStyles?.boldTextStyle,
                 componentStyles?.checklist?.checkListItem?.boldTextStyle,
               ],
               italicTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.checklist?.checkListItem?.textStyle,
                 defaultStyles?.italicTextStyle,
                 componentStyles?.checklist?.checkListItem?.italicTextStyle,
               ],
               underlineTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.checklist?.checkListItem?.textStyle,
                 defaultStyles?.underlineTextStyle,
                 componentStyles?.checklist?.checkListItem?.underlineTextStyle,
               ],
               codeTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.checklist?.checkListItem?.textStyle,
                 defaultStyles?.codeTextStyle,
                 componentStyles?.checklist?.checkListItem?.codeTextStyle,
               ],
               markTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.checklist?.checkListItem?.textStyle,
                 defaultStyles?.markTextStyle,
                 componentStyles?.checklist?.checkListItem?.markTextStyle,
               ],
               linkTextStyle: [
                 defaultStyles?.textStyle,
+                componentStyles?.checklist?.checkListItem?.textStyle,
                 defaultStyles?.linkTextStyle,
                 componentStyles?.checklist?.checkListItem?.linkTextStyle,
               ],

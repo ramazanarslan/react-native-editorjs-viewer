@@ -61,7 +61,7 @@ const useParseHtmlTags = ({ styles }: IUseParseHtmlTags) => {
         getComponentByName(tagName),
         {
           ...props,
-          style: [styles?.textStyle, styles?.[getStyleName(tagName)]],
+          style: styles?.[getStyleName(tagName)],
         },
         tagChildren
       );
