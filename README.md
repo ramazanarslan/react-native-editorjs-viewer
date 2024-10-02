@@ -15,13 +15,13 @@ Whether you're building a content-rich app, a mobile blog reader, or any applica
 ## Installation
 
 ```sh
-npm install react-native-editorjs-viewer
+npm install @fintables/react-native-editorjs-viewer
 ```
 
 ## Usage
 
 ```javascript
-import EditorJsViewer from 'react-native-editorjs-viewer';
+import EditorJsViewer from '@fintables/react-native-editorjs-viewer';
 
 // ...
 
