@@ -8,8 +8,8 @@ export type IHeaderProps = {
     level: 1 | 2 | 3 | 4 | 5 | 6;
     text: string;
   };
-  style?: TextProps['style'];
-  otherStyles?: IUseParseHtmlTags['styles'];
+  style?: (level: 1 | 2 | 3 | 4 | 5 | 6) => TextProps['style'];
+  otherStyles?: (level: 1 | 2 | 3 | 4 | 5 | 6) => IUseParseHtmlTags['styles'];
 };
 
 const Header = ({ data, style, otherStyles }: IHeaderProps) => {
@@ -20,8 +20,8 @@ const Header = ({ data, style, otherStyles }: IHeaderProps) => {
 
   const { parseHtmlTag, defaultTagList } = useParseHtmlTags({
     styles: {
-      ...otherStyles,
-      textStyle: style,
+      ...otherStyles?.(data.level),
+      textStyle: style?.(data.level),
     },
   });
 
@@ -35,7 +35,7 @@ const Header = ({ data, style, otherStyles }: IHeaderProps) => {
       accessible
       accessibilityRole="header"
       allowFontScaling={true}
-      style={[styles.header, headingStyleByLevel, style]}
+      style={[styles.header, headingStyleByLevel, style?.(data.level)]}
     >
       {parsedText}
     </Text>

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-editorjs-viewer": ["./src/index"]
+      "@fintables/react-native-editorjs-viewer": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

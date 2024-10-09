@@ -1,6 +1,6 @@
 import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import data from './data.json';
-import EditorJsViewer from 'react-native-editorjs-viewer';
+import EditorJsViewer from '@fintables/react-native-editorjs-viewer';
 
 export default function App() {
   return (

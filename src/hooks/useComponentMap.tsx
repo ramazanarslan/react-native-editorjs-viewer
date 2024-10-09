@@ -95,49 +95,49 @@ function useComponentMap(
         return (
           <Header
             data={block.data}
-            style={[
+            style={(level) => [
               containerStyle,
               defaultStyles?.textStyle,
-              componentStyles?.header?.textStyle,
+              componentStyles?.header?.textStyle?.(level),
             ]}
-            otherStyles={{
+            otherStyles={(level) => ({
               boldTextStyle: [
                 defaultStyles?.textStyle,
-                componentStyles?.header?.textStyle,
+                componentStyles?.header?.textStyle?.(level),
                 defaultStyles?.boldTextStyle,
                 componentStyles?.header?.boldTextStyle,
               ],
               italicTextStyle: [
                 defaultStyles?.textStyle,
-                componentStyles?.header?.textStyle,
+                componentStyles?.header?.textStyle?.(level),
                 defaultStyles?.italicTextStyle,
                 componentStyles?.header?.italicTextStyle,
               ],
               underlineTextStyle: [
                 defaultStyles?.textStyle,
-                componentStyles?.header?.textStyle,
+                componentStyles?.header?.textStyle?.(level),
                 defaultStyles?.underlineTextStyle,
                 componentStyles?.header?.underlineTextStyle,
               ],
               codeTextStyle: [
                 defaultStyles?.textStyle,
-                componentStyles?.header?.textStyle,
+                componentStyles?.header?.textStyle?.(level),
                 defaultStyles?.codeTextStyle,
                 componentStyles?.header?.codeTextStyle,
               ],
               markTextStyle: [
                 defaultStyles?.textStyle,
-                componentStyles?.header?.textStyle,
+                componentStyles?.header?.textStyle?.(level),
                 defaultStyles?.markTextStyle,
                 componentStyles?.header?.markTextStyle,
               ],
               linkTextStyle: [
                 defaultStyles?.textStyle,
-                componentStyles?.header?.textStyle,
+                componentStyles?.header?.textStyle?.(level),
                 defaultStyles?.linkTextStyle,
                 componentStyles?.header?.linkTextStyle,
               ],
-            }}
+            })}
           />
         );
       },

@@ -70,7 +70,9 @@ export type EditorJsViewerProps = {
   defaultStyles?: IUseParseHtmlTags['styles'];
   componentStyles?: {
     paragraph?: IUseParseHtmlTags['styles'];
-    header?: IUseParseHtmlTags['styles'];
+    header?: {
+      textStyle?: (level: 1 | 2 | 3 | 4 | 5 | 6) => TextProps['style'];
+    } & Omit<NonNullable<IUseParseHtmlTags['styles']>, 'textStyle'>;
     delimiter?: {
       containerStyle?: ViewProps['style'];
       textStyle?: TextProps['style'];
