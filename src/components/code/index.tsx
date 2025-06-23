@@ -1,8 +1,8 @@
-import { View, StyleSheet } from 'react-native';
+import type { TextProps, ViewProps } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import CodeHighlighter from 'react-native-code-highlighter';
-import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import type { ViewProps, TextProps } from 'react-native';
 import { type CodeHighlighterProps } from 'react-native-code-highlighter/src/lib/CodeHighlighter';
+import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export type ICodeProps = {
   data: {

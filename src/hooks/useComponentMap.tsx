@@ -24,7 +24,8 @@ function useComponentMap(
   componentStyles: EditorJsViewerProps['componentStyles'],
   defaultStyles: EditorJsViewerProps['defaultStyles'],
   customComponents: EditorJsViewerProps['customComponents'],
-  componentProps: EditorJsViewerProps['componentProps']
+  componentProps: EditorJsViewerProps['componentProps'],
+  textProps: EditorJsViewerProps['textProps']
 ): IComponentObject {
   return useMemo(() => {
     const Paragraph = components?.Paragraph || ParagraphComponent;
@@ -50,6 +51,7 @@ function useComponentMap(
               defaultStyles?.textStyle,
               componentStyles?.paragraph?.textStyle,
             ]}
+            textProps={textProps}
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
@@ -100,6 +102,7 @@ function useComponentMap(
               defaultStyles?.textStyle,
               componentStyles?.header?.textStyle?.(level),
             ]}
+            textProps={textProps}
             otherStyles={(level) => ({
               boldTextStyle: [
                 defaultStyles?.textStyle,
@@ -153,6 +156,7 @@ function useComponentMap(
               defaultStyles?.textStyle,
               componentStyles?.delimiter?.textStyle,
             ]}
+            textProps={textProps}
           />
         );
       },
@@ -169,6 +173,7 @@ function useComponentMap(
               componentStyles?.image?.textStyle,
             ]}
             imageStyle={componentStyles?.image?.imageStyle}
+            textProps={textProps}
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
@@ -235,11 +240,18 @@ function useComponentMap(
               componentStyles?.linkTool?.linkTextStyle,
             ]}
             imageStyle={componentStyles?.linkTool?.imageStyle}
-            titleTextProps={componentProps?.linkTool?.titleTextProps}
-            descriptionTextProps={
-              componentProps?.linkTool?.descriptionTextProps
-            }
-            linkTextProps={componentProps?.linkTool?.linkTextProps}
+            titleTextProps={{
+              ...textProps,
+              ...componentProps?.linkTool?.titleTextProps,
+            }}
+            descriptionTextProps={{
+              ...textProps,
+              ...componentProps?.linkTool?.descriptionTextProps,
+            }}
+            linkTextProps={{
+              ...textProps,
+              ...componentProps?.linkTool?.linkTextProps,
+            }}
             imageProps={componentProps?.linkTool?.imageProps}
           />
         );
@@ -260,6 +272,7 @@ function useComponentMap(
               defaultStyles?.textStyle,
               componentStyles?.quote?.captionTextStyle,
             ]}
+            textProps={textProps}
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
@@ -323,6 +336,7 @@ function useComponentMap(
               ],
             }}
             contentContainerStyle={componentStyles?.list?.contentContainerStyle}
+            textProps={textProps}
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
@@ -387,7 +401,7 @@ function useComponentMap(
               componentStyles?.table?.contentContainerStyle
             }
             separatorStyle={componentStyles?.table?.separatorStyle}
-            textProps={componentProps?.table?.textProps}
+            textProps={{ ...textProps, ...componentProps?.table?.textProps }}
             flatListProps={componentProps?.table?.flatListProps}
           />
         );
@@ -410,6 +424,7 @@ function useComponentMap(
               defaultStyles?.textStyle,
               componentStyles?.warning?.textStyle,
             ]}
+            textProps={textProps}
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
@@ -483,6 +498,7 @@ function useComponentMap(
             contentContainerStyle={
               componentStyles?.checklist?.contentContainerStyle
             }
+            textProps={textProps}
             otherStyles={{
               boldTextStyle: [
                 defaultStyles?.textStyle,
@@ -549,6 +565,7 @@ function useComponentMap(
               containerStyle,
               componentStyles?.raw?.containerStyle,
             ]}
+            textProps={textProps}
             {...componentProps?.raw}
           />
         );
@@ -561,6 +578,7 @@ function useComponentMap(
     customComponents,
     componentProps,
     defaultStyles,
+    textProps,
   ]) as IComponentObject;
 }
 
