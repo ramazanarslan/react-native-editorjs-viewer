@@ -6,7 +6,10 @@ import { Bold, Code, Italic, Link, Mark, Underline } from '../subComponents';
 
 const defaultTagList = ['b', 'code', 'i', 'mark', 'u', 'a'];
 
-const useParseHtmlTags = ({ styles }: IUseParseHtmlTags) => {
+const useParseHtmlTags = ({
+  styles,
+  textProps,
+}: IUseParseHtmlTags & { textProps?: any }) => {
   const getTagName = useCallback((value: string) => {
     return value.match(/<\s*(\w+)/)?.[1] ?? '';
   }, []);
@@ -60,13 +63,14 @@ const useParseHtmlTags = ({ styles }: IUseParseHtmlTags) => {
       return createElement(
         getComponentByName(tagName),
         {
+          ...textProps,
           ...props,
           style: styles?.[getStyleName(tagName)],
         },
         tagChildren
       );
     },
-    [getComponentByName, getStyleName, styles]
+    [getComponentByName, getStyleName, styles, textProps]
   );
 
   const matchTagInList = useCallback(
@@ -120,13 +124,13 @@ const useParseHtmlTags = ({ styles }: IUseParseHtmlTags) => {
 
       const propsMap: Record<string, any> =
         props?.split(' ').reduce((acc, curr) => {
-          const [key, value] = curr.split('=');
+          const [key, val] = curr.split('=');
 
-          if (!key || !value) return acc;
+          if (!key || !val) return acc;
 
           return {
             ...acc,
-            [key]: value.replace(/"/g, ''),
+            [key]: val.replace(/"/g, ''),
           };
         }, {}) ?? {};
 
